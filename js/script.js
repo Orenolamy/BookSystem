@@ -2,6 +2,7 @@
 //test
 //goodbye
 //hi hi hi hi hi
+//大家好
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
