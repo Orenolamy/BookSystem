@@ -1,6 +1,7 @@
 //Hello
 //test
 //goodbye
+//hi hi hi hi hi
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
