@@ -3,6 +3,7 @@
 //goodbye
 //hi hi hi hi hi
 //大家好
+//123123123
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
