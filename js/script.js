@@ -221,33 +221,38 @@ function addBook() {
 function updateBook(bookId){
     
     //TODO：請完成更新書籍的相關功能
-    var book=bookDataFromLocalStorage.find(m=>m.BookId==bookId)
+    var book=bookDataFromLocalStorage.find(m=>m.BookId==bookId);
 
     book.BookName=$("#book_name_d").val();
-    book.BookClassId=$("#book_class_d").val();
-    book.BookClassName="";
-    book.BookBoughtDate=""
-    book.BookStatusId=""
-    book.BookStatusName=""
+    book.BookClassId=$("#book_class_d").data("kendoDropDownList").value();
+    book.BookClassName=classData.find(m=>m.value==book.BookClassId).text;
+    book.BookBoughtDate=kendo.toString($("#book_bought_date_d").data("kendoDatePicker").value(),"yyyy-MM-dd");
+    
+    var bookStatusId=$("#book_status_d").data("kendoDropDownList").value();
+    book.BookStatusId=bookStatusId;
+    book.BookStatusName=bookStatusData.find(m=>m.StatusId==bookStatusId).StatusText;
     
     var bookKeeperId=$("#book_keeper_d").data("kendoDropDownList").value();
-    var bookKeeperCname=
-        bookKeeperId==""?"":memberData.find(m=>m.UserId==bookKeeperId).UserCname;
+    var bookKeeperCname=bookKeeperId==""?"":memberData.find(m=>m.UserId==bookKeeperId).UserCname;
+    var bookKeeperEname=bookKeeperId==""?"":memberData.find(m=>m.UserId==bookKeeperId).UserEname;
 
     book.BookKeeperId=bookKeeperId;
     book.BookKeeperCname=bookKeeperCname;
-    book.BookKeeperEname="";
+    book.BookKeeperEname=bookKeeperEname;
 
-    book.BookAuthor="";
-    book.BookPublisher="";
-    book.BookNote="";
+    book.BookAuthor=$("#book_author_d").val();
+    book.BookPublisher=$("#book_publisher_d").val();
+    book.BookNote=$("#book_note_d").val();
+
+    // 同步回 localStorage
+    localStorage.setItem("bookData", JSON.stringify(bookDataFromLocalStorage));
 
     var grid=$("#book_grid").data("kendoGrid");
     grid.dataSource.pushUpdate(book);
 
-    
-    if(bookStatusId=="B" || bookStatusId=="C"){
-        addBookLendRecord();
+    // 若狀態為已借出(B)或已借出未領(U)就寫借閱紀錄
+    if(bookStatusId=="B" || bookStatusId=="U"){
+        addBookLendRecord(bookId);
     }
     
     $("#book_detail_area").data("kendoWindow").close();
@@ -256,8 +261,23 @@ function updateBook(bookId){
  }
 
  /**新增借閱紀錄 */
- function addBookLendRecord() {  
-    //TODO：請完成新增借閱紀錄相關功能
+ function addBookLendRecord(bookId) {  
+     //TODO：請完成新增借閱紀錄相關功能
+     var book = bookDataFromLocalStorage.find(m => m.BookId == bookId);
+     var bookKeeperId = book.BookKeeperId;
+     var bookKeeperData = memberData.find(m => m.UserId == bookKeeperId);
+    
+     var lendRecord = {
+          "BookId": bookId,
+          "LendDate": kendo.toString(new Date(), "yyyy-MM-dd"),
+          "BookKeeperId": bookKeeperId,
+          "BookKeeperEname": bookKeeperData.UserEname,
+          "BookKeeperCname": bookKeeperData.UserCname,
+          "ReturnDate": ""
+     };
+    
+     bookLendDataFromLocalStorage.push(lendRecord);
+     localStorage.setItem("lendData", JSON.stringify(bookLendDataFromLocalStorage));
  }
 
  /**
@@ -321,6 +341,22 @@ function showBookForDetail(e,bookId) {
     e.preventDefault();
     //TODO : 請補齊未完成的功能
     $("#book_detail_area").data("kendoWindow").title("書籍明細");
+
+    // 唯讀模式：隱藏存檔，禁用輸入
+    $("#btn-save").css("display", "none");
+
+    bindBook(bookId);
+
+    $("#book_name_d").prop("disabled", true);
+    $("#book_class_d").data("kendoDropDownList").enable(false);
+    $("#book_bought_date_d").data("kendoDatePicker").enable(false);
+    $("#book_author_d").prop("disabled", true);
+    $("#book_publisher_d").prop("disabled", true);
+    $("#book_note_d").prop("disabled", true);
+    $("#book_status_d").data("kendoDropDownList").enable(false);
+    $("#book_keeper_d").data("kendoDropDownList").enable(false);
+
+    $("#book_detail_area").data("kendoWindow").open();
 
 }
 
