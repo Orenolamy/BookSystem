@@ -1,9 +1,3 @@
-//Hello
-//test
-//goodbye
-//hi hi hi hi hi
-//大家好
-//123123123
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -415,18 +409,23 @@ function setStatusKeepRelation() {
             $("#book_keeper_d").prop('required',false);            
             break;
         case "update"://修改狀態
+            $("#book_status_d_col").css("display","");
+            $("#book_keeper_d_col").css("display","");
 
             $("#book_status_d").prop('required',true);
 
             var bookStatusId=$("#book_status_d").data("kendoDropDownList").value();
 
+            // 判斷借閱狀態：A-可以借出 或 U-已借出(未領) => 設為第一組 (必填, Enable)
             if(bookStatusId=="A" || bookStatusId=="U"){
                 $("#book_keeper_d").prop('required',false);
+                $("#book_keeper_d").data("kendoDropDownList").enable(false); // 禁用借閱人
                 $("#book_keeper_d").data("kendoDropDownList").value("");
                 $("#book_detail_area").data("kendoValidator").validateInput($("#book_keeper_d"));
-                     
-            }else{
+            // 否則 (B-已借出 或 C-不可借出) => 必填，啟用 (BC一組)
+            }else{ 
                 $("#book_keeper_d").prop('required',true);
+                $("#book_keeper_d").data("kendoDropDownList").enable(true); // 啟用借閱人
             }
             break;
         default:
