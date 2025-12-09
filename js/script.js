@@ -352,7 +352,13 @@ function showBookLendRecord(e) {
 function clear(area) {
     //TODO : 請補齊未完成的功能
     $("#book_name_q").val("");
+    // 清空 Kendo DropDownList 的選擇
+    $("#book_class_q").data("kendoDropDownList").value("");
+    $("#book_keeper_q").data("kendoDropDownList").value("");
+    $("#book_status_q").data("kendoDropDownList").value("");
 
+    // 清空 Grid 的篩選條件，同步清空 Grid 內容
+    getBooGrid().dataSource.filter({});
 }
 
 /**
