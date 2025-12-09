@@ -73,20 +73,40 @@ $(function () {
         e.preventDefault();
         
         //TODO : 存檔前請作必填的檢查
-        //低消：使用 if else ==>alert 提示訊息檢查
+        //低效：使用 if else ==>alert 提示訊息檢查
         //優  : 使用 kendo validator 檢查
-        switch (state) {
-            case "add":
-                addBook();
-                break;
-            case "update":
-                updateBook('9999');
-            break;
-            default:
-                break;
+
+        var validator = $("#book_detail_area").kendoValidator().data("kendoValidator");
+
+        if(validator.validate()){
+            console.log("驗證成功");
+
+            switch (state) {
+                case "add":
+                    addBook();
+                    break;
+                case "update":
+                    updateBook(bookId=$("#book_id_d").val());
+                    break;
+                default:
+                    alert("未知操作狀態")
+                    break;
+            }
+        } 
+        else {
+            alert("每個欄位皆須填寫!")
         }
-        
     });
+
+
+            //case "add":
+                //addBook();
+                //break;
+            //case "update":
+                //updateBook(bookId=$("#book_id_d").val());
+            //break;
+            //default:
+                //brea
 
     $("#book_grid").kendoGrid({
         dataSource: {
@@ -179,10 +199,30 @@ function loadBookData() {
 
 function onChange() {
     //TODO : 請完成遺漏的邏輯
-    if(selectedValue===""){
-        $("#book_image_d").attr("src", "image/optional.jpg");
+
+    // 取得使用者選擇的類別ID
+    var selectedvalue = $("#book_class_d").data("kendoDropDownList").value();
+
+    if(selectedvalue===""){
+        console.log("no class selected");
+        $("#book_image_d").attr("src", "image/optional.jpg"); // 若使用者未選擇類別，則顯示預設圖片
     }else{
-       
+       // 根據使用者選擇的類別ID，找出對應的類別物件
+        var selectclass = classData.find(c => c.value == selectedvalue);
+        console.log("selectclass= ", selectclass);
+
+        // 根據類別物件取得對應的圖片路徑
+        var imagePath = selectclass && selectclass.imagePath ? selectclass.imagePath:"image/optional.jpg"; // 先檢查selectclass是否存在，若存在，再檢查selectclass.imagePath是否存在，若都存在就回傳selectclass.imagePath的值，否則就回傳false
+        console.log("imagePath= ", imagePath);
+
+        // 確認img元素是否存在
+        var $image = $("#book_image_d");
+        if($image.length === 0){
+            console.log("Image element not found!");
+            return;
+        }
+
+        $("#book_image_d").attr("src", imagePath); // 更新圖片路徑
     }
 }
 
@@ -201,16 +241,41 @@ function addBook() {
         "BookClassName": "",
         "BookBoughtDate": kendo.toString($("#book_bought_date_d").data("kendoDatePicker").value(),"yyyy-MM-dd"),
         "BookStatusId": "A",
-        "BookStatusName": bookStatusData.find(m=>m.StatusId==defauleBookStatusId).StatusText,
+        "BookStatusName": bookStatusData.find(m=>m.StatusId==defaultBookStatusId).StatusText,
         "BookKeeperId": "",
         "BookKeeperCname": "",
         "BookKeeperEname": "",
-        "BookAuthor": "",
-        "BookPublisher": "",
-        "BookNote": ""
+        "BookAuthor": $("#book_author_d").val() || "",
+        "BookPublisher": $("#book_publisher_d").val() || "",
+        "BookNote": $("#book_note_d").val() || ""
     }
 
+    // 計算新的BookId
+    if(bookDataFromLocalStorage.length > 0){
+        newId = Math.max(...bookDataFromLocalStorage.map(b => b.BookId)) + 1; // 將陣列中每本書的BookId取出，並找出最大值，最後再加1
+    }
+    else{
+        newId = 1; // 若目前沒有任何書籍，就將這本書的Id設為1
+    }
+    book.BookId = newId; // 更新BookId
+
+    // 填入類別與狀態名稱
+    var cls = (classData || []).find(c => c.value == book.BookClassId); // 若classData(使用者選擇的類別)存在，就用它，否則就用空陣列[]
+    book.BookClassName = cls ? cls.text : ""; // 若找到了對應的類別(例如選擇了ID為2，對應的類別為"文學"，就取它的text，否則就設為空字串
+
+    var st = (bookStatusData || []).find(s => s.StatusId == book.BookStatusId) // 在bookStatusData中找出對應的狀態
+             ||(bookStatusData || []).find(s => s.StatusId == defaultBookStatusId); // 如果找不到，就用預設的狀態
+    book.BookStatusName = st ? st.StatusText : ""; // 取出對應的狀態名稱，若找不到就設為空字串
+
+    // 將新書同步到localstorage
+    bookDataFromLocalStorage.push(book); // 將剛建立的book物件加入到陣列bookDataFromLocalStorage的末端
+    localStorage.setItem("bookData", JSON.stringify(bookDataFromLocalStorage));  // localstorage只能儲存字串，故須先使用JSON.stringify轉成字串，並以"bookData"作為key，存入瀏覽器儲存空間
+
+    // 更新grid
+    grid.dataSource.add(book); // 將新書加入Kendo Grid的資料來源
+
     //關閉 Window
+    clear();
     $("#book_detail_area").data("kendoWindow").close();
  }
 

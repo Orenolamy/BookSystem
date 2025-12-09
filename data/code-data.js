@@ -1,17 +1,17 @@
 var classData = [
-    { "text": "Banking", "value": "BK" },
-    { "text": "Database", "value": "DB" },
-    { "text": "Languages", "value": "LG" },
-    { "text": "Laws And Rules", "value": "LR" },
-    { "text": "Management", "value": "MG" },
-    { "text": "Marketing", "value": "MK" },
-    { "text": "Networking", "value": "NW" },
-    { "text": "Operating System", "value": "OS" },
-    { "text": "Security", "value": "SC" },
-    { "text": "Software Engineering", "value": "SE" },
-    { "text": "Others", "value": "OT" },
-    { "text": "內部訓練課程光碟", "value": "TRCD" },
-    { "text": "研討會/產品介紹光碟", "value": "SECD" }];
+    { "text": "Banking", "value": "BK", "imagePath": "image/BK.jpg" },
+    { "text": "Database", "value": "DB", "imagePath": "image/DB.jpg" },
+    { "text": "Languages", "value": "LG", "imagePath": "image/LG.jpg" },
+    { "text": "Laws And Rules", "value": "LR", "imagePath": "image/LR.jpg" },
+    { "text": "Management", "value": "MG", "imagePath": "image/MG.jpg" },
+    { "text": "Marketing", "value": "MK", "imagePath": "image/MK.jpg" },
+    { "text": "Networking", "value": "NW", "imagePath": "image/NW.jpg" },
+    { "text": "Operating System", "value": "OS", "imagePath": "image/OS.jpg" },
+    { "text": "Security", "value": "SC", "imagePath": "image/SC.jpg" },
+    { "text": "Software Engineering", "value": "SE", "imagePath": "image/SE.jpg" },
+    { "text": "Others", "value": "OT", "imagePath": "image/OT.jpg" },
+    { "text": "內部訓練課程光碟", "value": "TRCD", "imagePath": "image/TRCD.jpg" },
+    { "text": "研討會/產品介紹光碟", "value": "SECD", "imagePath": "image/SECD.jpg" }];
 
 var memberData = [
     { "UserId": "0010", "UserCname": "彭杰姆", "UserEname": "Jim" },
@@ -33,3 +33,5 @@ var bookStatusData = [
     { "StatusId": "U", "StatusText": "不可借出" },
     { "StatusId": "C", "StatusText": "已借出(未領)" }
 ]
+
+var defaultBookStatusId = "A"; // 預設書籍狀態為「可以借出」
