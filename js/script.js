@@ -429,15 +429,29 @@ function bindBook(bookId){
     $("#book_name_d").val(book.BookName);
     $("#book_author_d").val(book.BookAuthor);
     $("#book_publisher_d").val(book.BookPublisher);
-    //TODO : 完成尚未完成的程式碼
+    
+    // 绑定书籍类别
+    $("#book_class_d").data("kendoDropDownList").value(book.BookClassId);
+    
+    // 绑定购书日期
+    $("#book_bought_date_d").data("kendoDatePicker").value(new Date(book.BookBoughtDate));
+    
+    // 绑定借阅状态
+    $("#book_status_d").data("kendoDropDownList").value(book.BookStatusId);
+    
+    // 绑定借阅人
+    $("#book_keeper_d").data("kendoDropDownList").value(book.BookKeeperId);
+    
+    // 绑定内容简介
+    $("#book_note_d").val(book.BookNote);
 }
 
 function showBookLendRecord(e) {
 
-    //TODO : 請補齊未完成的功能
     var grid = getBooGrid();
     var dataItem=grid.dataItem(e.target.closest("tr"))
-    var bookLendRecordData=[];
+    // 根据书籍ID筛选出该书籍的所有借阅记录
+    var bookLendRecordData = bookLendDataFromLocalStorage.filter(m => m.BookId == dataItem.BookId);
     
     $("#book_record_grid").data("kendoGrid").dataSource.data(bookLendRecordData);
     $("#book_record_area").data("kendoWindow").title(dataItem.BookName).open();
