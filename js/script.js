@@ -1,3 +1,9 @@
+//Hello
+//test
+//goodbye
+//hi hi hi hi hi
+//大家好
+//123123123
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -452,6 +458,8 @@ function bindBook(bookId){
 }
     //TODO : 請補齊未完成的功能
 function showBookLendRecord(e) {
+
+    //TODO : 請補齊未完成的功能
 
     var grid = getBooGrid();
     var dataItem=grid.dataItem(e.target.closest("tr"))
