@@ -378,7 +378,22 @@ function deleteBook(e) {
     var grid = $("#book_grid").data("kendoGrid");    
     var row = grid.dataItem(e.target.closest("tr"));
 
+    // 檢查是否已借出 (B-已借出 或 U-已借出未領)
+    if(row.BookStatusId === "B" || row.BookStatusId === "U"){
+        alert("已借出書籍不可刪除");
+        return;
+    }
+
+    // Grid 該筆移除
     grid.dataSource.remove(row);    
+    
+    // localStorage 該筆也要移除
+    var index = bookDataFromLocalStorage.findIndex(m => m.BookId === row.BookId);
+    if(index !== -1){
+        bookDataFromLocalStorage.splice(index, 1);
+        localStorage.setItem("bookData", JSON.stringify(bookDataFromLocalStorage));
+    }
+    
     alert("刪除成功");
 
 }
