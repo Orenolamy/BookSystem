@@ -1,3 +1,9 @@
+//Hello
+//test
+//goodbye
+//hi hi hi hi hi
+//大家好
+//123123123
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -44,8 +50,20 @@ $(function () {
         state=stateOption.add;
 
         setStatusKeepRelation(state);
+        // 確保類別下拉可以操作，並重置為未選擇狀態
+        var classDdl = $("#book_class_d").data("kendoDropDownList");
+        if(classDdl){
+            classDdl.enable(true);
+            classDdl.value("");
+        }
 
-        $("#btn-save").css("display","");        
+        // 顯示預設圖片
+        $("#book_image_d").attr("src", "image/optional.jpg");
+
+        // 觸發 onChange 以更新圖片（如果需要）
+        try{ onChange(); }catch(ex){}
+
+        $("#btn-save").css("display","");
         $("#book_detail_area").data("kendoWindow").title("新增書籍");
         $("#book_detail_area").data("kendoWindow").open();
     });
@@ -430,14 +448,22 @@ function bindBook(bookId){
     $("#book_author_d").val(book.BookAuthor);
     $("#book_publisher_d").val(book.BookPublisher);
     //TODO : 完成尚未完成的程式碼
+    // 補齊欄位綁定
+    $("#book_class_d").data("kendoDropDownList").value(book.BookClassId);
+    // 程式設定值後也觸發 onChange，讓圖片隨類別變更
+    try{ onChange(); }catch(ex){}
+    $("#book_bought_date_d").data("kendoDatePicker").value(new Date(book.BookBoughtDate));
+    $("#book_status_d").data("kendoDropDownList").value(book.BookStatusId);
+    $("#book_keeper_d").data("kendoDropDownList").value(book.BookKeeperId);
+    $("#book_note_d").val(book.BookNote);
 }
-
+    //TODO : 請補齊未完成的功能
 function showBookLendRecord(e) {
 
-    //TODO : 請補齊未完成的功能
     var grid = getBooGrid();
     var dataItem=grid.dataItem(e.target.closest("tr"))
-    var bookLendRecordData=[];
+    // 根据书籍ID筛选出该书籍的所有借阅记录
+    var bookLendRecordData = bookLendDataFromLocalStorage.filter(m => m.BookId == dataItem.BookId);
     
     $("#book_record_grid").data("kendoGrid").dataSource.data(bookLendRecordData);
     $("#book_record_area").data("kendoWindow").title(dataItem.BookName).open();
