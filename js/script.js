@@ -1,4 +1,3 @@
-
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -120,9 +119,10 @@ $(function () {
             data: bookDataFromLocalStorage,
             schema: {
                 model: {
-                    id:"BookId",
+                    id: "BookId",
                     fields: {
                         BookId: { type: "int" },
+                        BookClassId: { type: "string" }, // 補這行
                         BookClassName: { type: "string" },
                         BookName: { type: "string" },
                         BookBoughtDate: { type: "string" },
@@ -384,7 +384,27 @@ function deleteBook(e) {
 }
 
 
-/**
+ /**
+ * 查詢
+ */
+function queryBook() {
+  var grid = getBooGrid();
+  var filtersCondition = [];
+
+  var bookClassId = $("#book_class_q").data("kendoDropDownList").value() || "";
+  var bookName = $("#book_name_q").val() || "";
+  var bookKeeperId = $("#book_keeper_q").data("kendoDropDownList").value() || "";
+  var bookStatusId = $("#book_status_q").data("kendoDropDownList").value() || "";
+
+  if (bookClassId) filtersCondition.push({ field: "BookClassId", operator: "contains", value: bookClassId });
+  if (bookName) filtersCondition.push({ field: "BookName", operator: "contains", value: bookName });
+  if (bookKeeperId) filtersCondition.push({ field: "BookKeeperId", operator: "contains", value: bookKeeperId });
+  if (bookStatusId) filtersCondition.push({ field: "BookStatusId", operator: "contains", value: bookStatusId });
+
+  grid.dataSource.filter({ logic: "and", filters: filtersCondition });
+}
+
+ /**
  * 顯示圖書編輯畫面
  * @param {} e 
  */
