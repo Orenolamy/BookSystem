@@ -1,9 +1,4 @@
-//Hello
-//test
-//goodbye
-//hi hi hi hi hi
-//大家好
-//123123123
+
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -61,7 +56,7 @@ $(function () {
         $("#book_image_d").attr("src", "image/optional.jpg");
 
         // 觸發 onChange 以更新圖片（如果需要）
-        try{ onChange(); }catch(ex){}
+        try{ onChange(); }catch(ex){ console.error(ex); }
 
         $("#btn-save").css("display","");
         $("#book_detail_area").data("kendoWindow").title("新增書籍");
@@ -400,6 +395,16 @@ function showBookForUpdate(e) {
     $("#book_detail_area").data("kendoWindow").title("修改書籍");
     $("#btn-save").css("display","");
 
+    // 確保欄位可編輯（若之前開過明細會被禁用）
+    $("#book_name_d").prop("disabled", false);
+    $("#book_class_d").data("kendoDropDownList").enable(true);
+    $("#book_bought_date_d").data("kendoDatePicker").enable(true);
+    $("#book_author_d").prop("disabled", false);
+    $("#book_publisher_d").prop("disabled", false);
+    $("#book_note_d").prop("disabled", false);
+    $("#book_status_d").data("kendoDropDownList").enable(true);
+    $("#book_keeper_d").data("kendoDropDownList").enable(true);
+
     var grid = getBooGrid();
     var bookId = grid.dataItem(e.target.closest("tr")).BookId;
 
@@ -451,7 +456,7 @@ function bindBook(bookId){
     // 補齊欄位綁定
     $("#book_class_d").data("kendoDropDownList").value(book.BookClassId);
     // 程式設定值後也觸發 onChange，讓圖片隨類別變更
-    try{ onChange(); }catch(ex){}
+    try{ onChange(); }catch(ex){ console.error(ex); }
     $("#book_bought_date_d").data("kendoDatePicker").value(new Date(book.BookBoughtDate));
     $("#book_status_d").data("kendoDropDownList").value(book.BookStatusId);
     $("#book_keeper_d").data("kendoDropDownList").value(book.BookKeeperId);
@@ -462,7 +467,7 @@ function showBookLendRecord(e) {
 
     var grid = getBooGrid();
     var dataItem=grid.dataItem(e.target.closest("tr"))
-    // 根据书籍ID筛选出该书籍的所有借阅记录
+    // 根據書籍ID篩選出該書籍的所有借閱記錄
     var bookLendRecordData = bookLendDataFromLocalStorage.filter(m => m.BookId == dataItem.BookId);
     
     $("#book_record_grid").data("kendoGrid").dataSource.data(bookLendRecordData);
@@ -512,7 +517,10 @@ function setStatusKeepRelation() {
                 $("#book_keeper_d").prop('required',false);
                 $("#book_keeper_d").data("kendoDropDownList").enable(false); // 禁用借閱人
                 $("#book_keeper_d").data("kendoDropDownList").value("");
-                $("#book_detail_area").data("kendoValidator").validateInput($("#book_keeper_d"));
+                var validator = $("#book_detail_area").data("kendoValidator");
+                if(validator){
+                    validator.validateInput($("#book_keeper_d"));
+                }
             // 否則 (B-已借出 或 C-不可借出) => 必填，啟用 (BC一組)
             }else{ 
                 $("#book_keeper_d").prop('required',true);
