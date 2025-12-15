@@ -1,4 +1,3 @@
-
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -353,19 +352,38 @@ function updateBook(bookId){
   */
 function queryBook(){
     
-    var grid=getBooGrid();
+    var grid = getBooGrid();
 
-    var bookClassId=$("#book_class_q").data("kendoDropDownList").value() ?? "";
+    var bookName = $("#book_name_q").val() ?? "";
+    var bookClassId = $("#book_class_q").data("kendoDropDownList").value() ?? "";
+    var bookKeeperId = $("#book_keeper_q").data("kendoDropDownList").value() ?? "";
+    var bookStatusId = $("#book_status_q").data("kendoDropDownList").value() ?? "";
 
-
-    var filtersCondition=[];
-    if(bookClassId!=""){
-        filtersCondition.push({ field: "BookClassId", operator: "contains", value: bookClassId });
+    var filtersCondition = [];
+    
+    // 書名模糊查詢
+    if(bookName != ""){
+        filtersCondition.push({ field: "BookName", operator: "contains", value: bookName });
+    }
+    
+    // 圖書類別查詢
+    if(bookClassId != ""){
+        filtersCondition.push({ field: "BookClassId", operator: "eq", value: bookClassId });
+    }
+    
+    // 借閱人查詢
+    if(bookKeeperId != ""){
+        filtersCondition.push({ field: "BookKeeperId", operator: "eq", value: bookKeeperId });
+    }
+    
+    // 借閱狀態查詢
+    if(bookStatusId != ""){
+        filtersCondition.push({ field: "BookStatusId", operator: "eq", value: bookStatusId });
     }
 
     grid.dataSource.filter({
         logic: "and",
-        filters:filtersCondition
+        filters: filtersCondition
     });
 }
 
