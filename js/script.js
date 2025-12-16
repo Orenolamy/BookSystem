@@ -46,6 +46,16 @@ $(function () {
 
         setStatusKeepRelation(state);
         // 確保類別下拉可以操作，並重置為未選擇狀態
+
+        // 清空明細欄位(除了新增日期以外)
+        $("#book_id_d").val("");
+        $("#book_name_d").val("");
+        $("#book_author_d").val("");
+        $("#book_publisher_d").val("");
+        $("#book_bought_date_d").data("kendoDatePicker").value(new Date());
+        $("#book_note_d").val("");
+
+
         var classDdl = $("#book_class_d").data("kendoDropDownList");
         if(classDdl){
             classDdl.enable(true);
@@ -327,6 +337,10 @@ function updateBook(bookId){
  }
 
  /**新增借閱紀錄 */
+ /**
+  * 新增借閱紀錄
+  * @param {*} bookId 
+  */
  function addBookLendRecord(bookId) {  // 這邊的bookId表示使用者要借閱的書籍ID
      //TODO：請完成新增借閱紀錄相關功能
      var book = bookDataFromLocalStorage.find(m => m.BookId == bookId); // 找出使用者要借閱的book ID
