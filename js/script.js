@@ -1,3 +1,4 @@
+
 var bookDataFromLocalStorage = [];
 var bookLendDataFromLocalStorage =[];
 
@@ -82,7 +83,7 @@ $(function () {
         //低效：使用 if else ==>alert 提示訊息檢查
         //優  : 使用 kendo validator 檢查
 
-        var validator = $("#book_detail_area").kendoValidator().data("kendoValidator"); 
+        var validator = $("#book_detail_area").kendoValidator().data("kendoValidator"); // 取得 書籍詳細資料區塊的 DOM 容器，包含<input>、<select>、<textarea>。Kendo 會掃描該區塊內所有可驗證欄位並讀取欄位上的驗證規則，例如required、type="email"、data-required-msg，從 jQuery 的 .data() 中 取出剛剛建立好的 Validator 實例
         // $("#book_detail_area")代表包含所有書籍資料的容器，而.kendoValidator()會掃描該區塊的欄位，包含<input>、<select>、<textarea>，並讀取HTML是否有required、data-*等屬性。若有，就把欄位對應規則關係存下來，放進jQuery .data("kendoValidator")
 
         if(validator.validate()){ // 依照剛剛存入的規則逐一驗證#book_detail_area 裡的所有可驗證欄位
@@ -351,34 +352,25 @@ function updateBook(bookId){
   * 查詢
   */
 function queryBook(){
-    
     var grid = getBooGrid();
-
-    var bookName = $("#book_name_q").val() ?? "";
     var bookClassId = $("#book_class_q").data("kendoDropDownList").value() ?? "";
-    var bookKeeperId = $("#book_keeper_q").data("kendoDropDownList").value() ?? "";
-    var bookStatusId = $("#book_status_q").data("kendoDropDownList").value() ?? "";
+    var q = $("#book_name_q").val().trim() ?? "";
 
     var filtersCondition = [];
-    
-    // 書名模糊查詢
-    if(bookName != ""){
-        filtersCondition.push({ field: "BookName", operator: "contains", value: bookName });
+
+    if (bookClassId !== "") {
+        filtersCondition.push({ field: "BookClassId", operator: "contains", value: bookClassId });
     }
-    
-    // 圖書類別查詢
-    if(bookClassId != ""){
-        filtersCondition.push({ field: "BookClassId", operator: "eq", value: bookClassId });
-    }
-    
-    // 借閱人查詢
-    if(bookKeeperId != ""){
-        filtersCondition.push({ field: "BookKeeperId", operator: "eq", value: bookKeeperId });
-    }
-    
-    // 借閱狀態查詢
-    if(bookStatusId != ""){
-        filtersCondition.push({ field: "BookStatusId", operator: "eq", value: bookStatusId });
+
+    if (q !== "") {
+        // 同時在 BookName 與 BookAuthor 上模糊搜尋（任一符合）
+        filtersCondition.push({
+            logic: "or",
+            filters: [
+                { field: "BookName", operator: "contains", value: q },
+                { field: "BookAuthor", operator: "contains", value: q }
+            ]
+        });
     }
 
     grid.dataSource.filter({
@@ -392,7 +384,28 @@ function deleteBook(e) {
     var grid = $("#book_grid").data("kendoGrid");    
     var row = grid.dataItem(e.target.closest("tr"));
 
-    grid.dataSource.remove(row);    
+    if(!row){
+        alert("找不到要刪除的資料");
+        return;
+    }
+
+    var bookId = row.BookId;
+    // 若書籍狀態為已借出或已借出(未領)，禁止刪除
+    if(row.BookStatusId === "B" || row.BookStatusId === "U"){
+        alert("此書籍目前為借閱狀態，無法刪除。若要移除請先處理借閱紀錄。");
+        return;
+    }
+
+    // 從 grid 移除
+    grid.dataSource.remove(row);
+
+    // 同步從記憶體陣列移除並更新 localStorage，確保重新整理後也被刪除
+    var idx = bookDataFromLocalStorage.findIndex(b => b.BookId == bookId);
+    if(idx > -1){
+        bookDataFromLocalStorage.splice(idx, 1);
+        localStorage.setItem("bookData", JSON.stringify(bookDataFromLocalStorage));
+    }
+
     alert("刪除成功");
 
 }
