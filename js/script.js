@@ -616,7 +616,8 @@ function registerRegularComponent(){
 
 
     $("#book_bought_date_d").kendoDatePicker({
-        value: new Date()
+        value: new Date(),
+        format: "yyyy-MM-dd"
     });
 }
 
