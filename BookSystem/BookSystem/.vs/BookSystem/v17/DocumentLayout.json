@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\controllers\\bookmaintaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:controllers\\bookmaintaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\code.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\code.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\codeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\codeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\booklendrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\booklendrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\controllers\\codecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:controllers\\codecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\bookqueryarg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\bookqueryarg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\apiresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\apiresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|d:\\backup\\workshop\\test\\workshop\\booksystem\\booksystem\\model\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE1A3CD2-CF08-48C5-912E-3136348812D5}|BookSystem.csproj|solutionrelative:model\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-25T06:06:40.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BookLendRecord.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\BookLendRecord.cs",
+              "RelativeDocumentMoniker": "Model\\BookLendRecord.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\BookLendRecord.cs",
+              "RelativeToolTip": "Model\\BookLendRecord.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:54:40.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\Book.cs",
+              "RelativeDocumentMoniker": "Model\\Book.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\Book.cs",
+              "RelativeToolTip": "Model\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:21:54.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CodeController.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Controllers\\CodeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CodeController.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Controllers\\CodeController.cs",
+              "RelativeToolTip": "Controllers\\CodeController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwCMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T06:21:03.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookMaintainController.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Controllers\\BookMaintainController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookMaintainController.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Controllers\\BookMaintainController.cs",
+              "RelativeToolTip": "Controllers\\BookMaintainController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T11:14:00.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:26:11.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CodeService.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\CodeService.cs",
+              "RelativeDocumentMoniker": "Model\\CodeService.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\CodeService.cs",
+              "RelativeToolTip": "Model\\CodeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T06:25:03.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Code.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\Code.cs",
+              "RelativeDocumentMoniker": "Model\\Code.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\Code.cs",
+              "RelativeToolTip": "Model\\Code.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T06:24:14.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\BookService.cs",
+              "RelativeDocumentMoniker": "Model\\BookService.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\BookService.cs",
+              "RelativeToolTip": "Model\\BookService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T11:12:42.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-11T11:12:47.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApiResult.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\ApiResult.cs",
+              "RelativeDocumentMoniker": "Model\\ApiResult.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\ApiResult.cs",
+              "RelativeToolTip": "Model\\ApiResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:39:29.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Member.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\Member.cs",
+              "RelativeDocumentMoniker": "Model\\Member.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\Member.cs",
+              "RelativeToolTip": "Model\\Member.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T06:26:16.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BookQueryArg.cs",
+              "DocumentMoniker": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\BookQueryArg.cs",
+              "RelativeDocumentMoniker": "Model\\BookQueryArg.cs",
+              "ToolTip": "D:\\Backup\\Workshop\\test\\Workshop\\BookSystem\\BookSystem\\Model\\BookQueryArg.cs",
+              "RelativeToolTip": "Model\\BookQueryArg.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:38:33.426Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
